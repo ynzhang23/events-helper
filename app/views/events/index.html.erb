@@ -1,0 +1,9 @@
+<h1>Heath Meet - Events</h1>
+
+<% if @events.empty? %>
+    <%= 'The Heath is asleep...' %>
+<% else %>
+  <% @events.each do |event| %>
+    <div><%= event %></div>
+  <% end %>
+<% end %>
