@@ -1,24 +1,5 @@
-# README
+# Heath Meet
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Objective
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Users are able to create, join, and manage events through the webpage, similar to [MeetUp](https://www.meetup.com/)
