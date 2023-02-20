@@ -1,0 +1,27 @@
+<h1><%= "Creating #{@user.display_name}'s new event..." %></h1>
+
+<% if flash.now[:errors] %>
+  <% flash[:errors].each do |msg| %>
+    <div><%= msg %></div>
+  <% end %>
+<% end %>
+
+<%= form_with model: @event do |form| %>
+  <div>
+    <%= form.label :event_name, "Event Name" %>
+    <%= form.text_field :event_name %>
+  </div>
+  <div>
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+  <div>
+    <%= form.label :location %>
+    <%= form.text_field :location %>
+  </div>
+  <div>
+    <%= form.label :date %>
+    <%= form.datetime_field :date, min: Date.new(1500, 01, 01), max: Date.new(2100, 12, 31) %>
+  </div>
+  <div><%= form.submit "Create new event!" %></div>
+<% end %>
