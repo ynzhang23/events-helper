@@ -1,8 +1,25 @@
-<h1><%= "#{@user.display_name}'s Events" %></h1>
-<% if @user.hosted_events.none? %>
-    <%= "#{@user.display_name} has no hosting plans!" %>
-<% else %>
-  <% @user.hosted_events.each do |event| %>
-    <div><%= event %></div>
+<h1><%= "#{@user.display_name}'s Profile" %></h1>
+<div>
+  <h2><%= "About" %></h2>
+  <div><%= "Name: #{@user.display_name}" %></div>
+  <div><%= "Username: #{@user.username}" %></div>
+  <div><%= "Email: #{@user.email}" %></div>
+</div>
+<div>
+  <h2><%= "Hosting:" %></h2>
+  <% events = @user.hosted_events %>
+  <% if events.none? %>
+      <%= "#{@user.display_name} has no hosting plans!" %>
+  <% else %>
+    <% events.each do |event| %>
+      <h3>
+        <div><%= event.event_name %></div>
+      </h3>
+      <div><%= event.description %></div>
+      <em>
+        <div><%= event.location %></div>
+        <div><%= event.date %></div>
+      </em>
+    <% end %>
   <% end %>
-<% end %>
+</div>
