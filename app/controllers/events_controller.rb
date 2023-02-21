@@ -5,7 +5,8 @@ class EventsController < ApplicationController
   end
 
   def show
-    @events = Event.find(params[:id])
+    @event = Event.find(params[:id])
+    @user = @event.host
   end
 
   def new
@@ -21,6 +22,21 @@ class EventsController < ApplicationController
     else
       flash.now[:errors] = @event.errors.full_messages
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def edit
+    @event = Event.find(params[:id])
+  end
+
+  def update
+    @event = Event.find(params[:id])
+
+    if @event.update(event_params)
+      redirect_to @event
+    else
+      flash.now[:errors] = @event.errors.full_messages
+      render :edit, status: :unprocessable_entity
     end
   end
 

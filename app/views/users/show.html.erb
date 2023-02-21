@@ -13,7 +13,7 @@
   <% else %>
     <% events.each do |event| %>
       <h3>
-        <div><%= event.event_name %></div>
+        <div><%= link_to "#{event.event_name}", event_path(event.id) %></div>
       </h3>
       <div><%= event.description %></div>
       <em>
