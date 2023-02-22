@@ -1,9 +1,13 @@
 <h1>Heath Meet - Events</h1>
 
-<% if @events.empty? %>
-  <%= 'The Heath is asleep...' %>
-<% else %>
-  <%= render partial: "events/event", collection: @events, locals: {show_join: true} %>
-<% end %>
+<%= image_tag("return-of-the-native.jpg", alt: "Book cover of Thomas Hardy's Return of the Native, a painting of the field of Egdon Heath") %>
+
+<div>
+  <% if @events.empty? %>
+    <%= 'The Heath is asleep...' %>
+  <% else %>
+    <%= render partial: "events/event", collection: @events, locals: {show_join: true} %>
+  <% end %>
+</div>
 
 <h4><%= link_to "Create a New Event!", new_event_path %></h4>
