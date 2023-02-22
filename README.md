@@ -4,7 +4,7 @@
 
 Users are able to create, join, and manage events through the webpage, similar to [MeetUp](https://www.meetup.com/)
 
-## Interesting Things I learnt
+## Biggest takeaways
 
 1. Passing options as locals when rendering partials.
 
@@ -24,3 +24,6 @@ Goal: Rendering a Join button within a partial only when needed
 
 <% end %>
 ```
+
+2. Understanding routes, paths and parameters, along with their compatibility with TurboDrive
+3. Debugging on Rails using gem 'pry-byebug' and 'pry-rails'
