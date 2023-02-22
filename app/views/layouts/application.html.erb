@@ -19,13 +19,19 @@
       </div>
       <div>
         <% if user_signed_in? %>
-          <%= "Current User: #{current_user.display_name}" %>
+          <%= "Current User: " %>
+          <%= link_to "#{current_user.display_name}", user_path(current_user.id) %>
           <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete } %>
         <% end %>
       </div>
     </div>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <% if flash.now[:errors] %>
+      <% flash[:errors].each do |msg| %>
+        <div><%= msg %></div>
+      <% end %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

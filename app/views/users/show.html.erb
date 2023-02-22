@@ -1,4 +1,7 @@
 <h1><%= "#{@user.display_name}'s Profile" %></h1>
+<% if @user == current_user %>
+  <%= link_to "Edit Profile", edit_user_registration_path %>
+<% end %>
 <div>
   <h2><%= "About" %></h2>
   <div><%= "Name: #{@user.display_name}" %></div>
@@ -7,19 +10,17 @@
 </div>
 <div>
   <h2><%= "Hosting:" %></h2>
-  <% events = @user.hosted_events %>
-  <% if events.none? %>
-      <%= "#{@user.display_name} has no hosting plans!" %>
+  <% if @hosted_events.none? %>
+    <%= "#{@user.display_name} has no hosting plans!" %>
   <% else %>
-    <% events.each do |event| %>
-      <h3>
-        <div><%= link_to "#{event.event_name}", event_path(event.id) %></div>
-      </h3>
-      <div><%= event.description %></div>
-      <em>
-        <div><%= event.location %></div>
-        <div><%= event.date %></div>
-      </em>
-    <% end %>
+    <%= render partial: "events/event", collection: @hosted_events, locals: {show_join: true} %>
+  <% end %>
+</div>
+<div>
+  <h2><%= "Attending:" %></h2>
+  <% if @attend_events.none? %>
+    <%= "#{@user.display_name} is not attending any events!" %>
+  <% else %>
+    <%= render partial: "events/event", collection: @attend_events, locals: {show_join: true} %>
   <% end %>
 </div>

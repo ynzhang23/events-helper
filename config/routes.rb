@@ -7,5 +7,4 @@ Rails.application.routes.draw do
     resources :attendances, only: %i[create destroy]
   end
   resources :users
-
 end

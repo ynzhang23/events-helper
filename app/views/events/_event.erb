@@ -1,0 +1,19 @@
+<h3>
+  <div><%= link_to "#{event.event_name}", event_path(event.id) %></div>
+</h3>
+<div><%= event.description %></div>
+<em>
+  <div><%= "Event Host: #{event.host.display_name}" %></div>
+  <div><%= event.location %></div>
+  <div><%= event.date %></div>
+</em>
+
+<% if local_assigns[:show_join] %>
+  <div><%= link_to "Join Event!", event_attendances_path(event.id), data: { turbo_method: :post } %></div>
+  <% if user_signed_in? %>
+    <%# Prevents owner of event from not going %>
+    <% if current_user.attend_event_ids.include?(event.id) && !current_user.hosted_event_ids.include?(event.id) %>
+      <div><%= link_to "I'm not going anymore", event_attendance_path(event_id: event.id, id: Attendance.find_by(event_id: event.id, user_id: current_user.id).id), data: { turbo_method: :delete } %></div>
+    <% end %>
+  <% end %>
+<% end %>

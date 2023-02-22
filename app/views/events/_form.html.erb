@@ -1,9 +1,3 @@
-<% if flash.now[:errors] %>
-  <% flash[:errors].each do |msg| %>
-    <div><%= msg %></div>
-  <% end %>
-<% end %>
-
 <%= form_with model: @event do |form| %>
   <div>
     <%= form.label :event_name, "Event Name" %>

@@ -2,12 +2,20 @@ class AttendancesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    # event_id is from the parent 'events' resources
-    event = Event.find(params[event_id])
     user = current_user
-    event.attendances.create(user: user)
+    @events = Event.all
+    event = Event.find(params[:event_id])
+    attendance = event.attendances.new(user: user)
+    if attendance.save
+      redirect_to user_path(current_user.id), notice: "You have successfully joined the event!"
+    else
+      flash.now[:errors] = attendance.errors.full_messages
+      render "events/index", status: :unprocessable_entity, locals: { events: @events }
+    end
   end
 
   def destroy
+    Attendance.find(params[:id]).destroy
+    redirect_to events_path, notice: "Sorry to see you go!"
   end
 end

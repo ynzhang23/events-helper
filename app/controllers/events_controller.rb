@@ -18,6 +18,7 @@ class EventsController < ApplicationController
     @user = current_user
     @event = @user.hosted_events.build(event_params)
     if @event.save
+      @event.attendances.create(user: current_user)
       redirect_to root_url
     else
       flash.now[:errors] = @event.errors.full_messages

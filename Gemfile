@@ -3,6 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
 
+# Debugging
+gem "pry-byebug"
+gem "pry-rails"
+
 # Set up Devise for user authentication
 gem "devise"
 
