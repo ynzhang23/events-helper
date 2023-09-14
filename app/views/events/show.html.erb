@@ -1,17 +1,21 @@
-<h1><%= "#{@event.event_name}" %></h1>
+<%= stylesheet_link_tag 'event_show' %>
 
-<div>
-  <div>
-    <%= "Host: " %>
-    <%= link_to "#{@user.display_name}", user_path(@user.id) %>
+<div class="container">
+  <h1 class="event-title"><%= "#{@event.event_name}" %></h1>
+  
+  <div class="event-details">
+    <div class="event-host">
+      <%= "Host: " %>
+      <%= link_to "#{@user.display_name}", user_path(@user.id) %>
+    </div>
+    <div class="event-description"><%= @event.description %></div>
+    <div class="event-location"><%= @event.location %></div>
+    <div class="event-date"><%= @event.date %></div>
   </div>
-  <div><%= @event.description %></div>
-  <div><%= @event.location %></div>
-  <div><%= @event.date %></div>
+  
+  <% if current_user == @user %>
+    <div class="edit-button"><%= link_to "Edit Event", edit_event_path %></div>
+  <% else %>
+    <div class="join-button"><%= link_to "Join!", event_attendances_path(@event.id), data: {turbo_method: :post} %></div>
+  <% end %>
 </div>
-
-<% if current_user == @user %>
-  <div><%= link_to "Edit Event", edit_event_path %></div>
-<% else %>
-  <div><%= link_to "Join!", event_attendances_path(@event.id), data: {turbo_method: :post} %></div>
-<% end %>

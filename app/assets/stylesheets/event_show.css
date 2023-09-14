@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap');
+
+/* Reset some default styles */
+body, h1, h4, p {
+  font-family: 'Dosis', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  max-width: 50%;
+}
+
+.event-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.event-details {
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 10px;
+}
+
+.event-host {
+  font-weight: bold;
+}
+
+.event-description {
+  margin-top: 10px;
+}
+
+.event-location {
+  margin-top: 10px;
+}
+
+.event-date {
+  margin-top: 10px;
+}
+
+.edit-button a,
+.join-button a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: transform 0.2s;
+}
+
+.edit-button a:hover,
+.join-button a:hover {
+  transform: translateY(-3px);
+}
