@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Heathmeet</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,17 +11,17 @@
   </head>
 
   <body>
-    <div>
-      <div>
-        <%= link_to "Homepage", root_url %>
-        <%= link_to "Login", new_user_session_path %>
-        <%= link_to "Signup", new_user_registration_path %>
+    <div class="top-bar">
+      <div class="top-bar-links">
+        <%= link_to "Homepage", root_url, class: "top-bar-link" %>
+        <%= link_to "Login", new_user_session_path, class: "top-bar-link" %>
+        <%= link_to "Signup", new_user_registration_path, class: "top-bar-link" %>
       </div>
-      <div>
+      <div class="user-info">
         <% if user_signed_in? %>
-          <%= "Current User: " %>
-          <%= link_to "#{current_user.display_name}", user_path(current_user.id) %>
-          <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete } %>
+          <div class="user-info-label">Current User:</div>
+          <%= link_to current_user.display_name, user_path(current_user.id), class: "user-info-link" %>
+          <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "top-bar-link logout-link" %>
         <% end %>
       </div>
     </div>
@@ -29,7 +29,7 @@
     <p class="alert"><%= alert %></p>
     <% if flash.now[:errors] %>
       <% flash[:errors].each do |msg| %>
-        <div><%= msg %></div>
+        <div class="error"><%= msg %></div>
       <% end %>
     <% end %>
     <%= yield %>

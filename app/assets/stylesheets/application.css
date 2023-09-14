@@ -13,3 +13,57 @@
  *= require_tree .
  *= require_self
  */
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap');
+
+/* Top Bar Styles */
+.top-bar {
+  background-color: #333; /* Dark background color */
+  color: #fff; /* White text color */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.top-bar-links {
+  display: flex;
+  gap: 10px;
+}
+
+.top-bar-link {
+  color: #fff; /* White text color for links */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-info-label {
+  font-weight: bold;
+}
+
+.user-info-link {
+  color: #1ccbb4; /* A custom color for user links */
+  text-decoration: none;
+}
+
+.logout-link {
+  background-color: #de513b; /* Red background color for logout link */
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* Error Message Styles */
+.error {
+  background-color: #de513b; /* Red background color for error messages */
+  color: #fff; /* White text color */
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+}
