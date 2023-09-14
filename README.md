@@ -1,10 +1,10 @@
-# Heath Meet
+# Events Helper
 
 ## Objective
 
 Users are able to create, join, and manage events through the webpage, similar to [MeetUp](https://www.meetup.com/)
 
-## Biggest takeaways
+## Takeaways
 
 1. Manipulating and managing many-to-many with :has_many_through associations using link tables
 
