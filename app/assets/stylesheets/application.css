@@ -64,6 +64,23 @@
   background-color: #de513b; /* Red background color for error messages */
   color: #fff; /* White text color */
   padding: 10px;
-  margin: 10px 0;
   border-radius: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Style for Notice Banner */
+.notice {
+  background-color: #4CAF50; /* Green background color */
+  padding: 10px;
+  color: white; /* White text color */
+  text-align: center; /* Center the text */
+}
+
+/* Style for Alert Banner */
+.alert {
+  background-color: #FF9800; /* Orange background color */
+  padding: 10px;
+  color: white; /* White text color */
+  text-align: center; /* Center the text */
 }

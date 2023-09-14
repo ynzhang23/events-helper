@@ -25,13 +25,21 @@
         <% end %>
       </div>
     </div>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    
+    <% if notice.present? %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+    
+    <% if alert.present? %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+    
     <% if flash.now[:errors] %>
       <% flash[:errors].each do |msg| %>
         <div class="error"><%= msg %></div>
       <% end %>
     <% end %>
+    
     <%= yield %>
   </body>
 </html>
