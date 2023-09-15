@@ -1,3 +1,4 @@
+/* Default styles for larger screens */
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap');
 
 /* Reset some default styles */
@@ -59,6 +60,8 @@ html, body {
 }
 
 .user-info-section {
+  align-self: flex-start;
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -67,10 +70,38 @@ html, body {
 .user-section {
   margin-top: 20px;
   text-align: left;
-  padding-right: 300px;
+  margin-right: 200px;
 }
 
 .user-section-title {
   font-size: 1.5rem;
   margin-bottom: 10px;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .profile-container {
+    flex-direction: column; /* Stack elements vertically for smaller screens */
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* Reduce padding for better mobile layout */
+    padding-bottom: 50px;
+    gap: 30px;
+  }
+
+  .profile-section {
+    padding-right: 0; /* Remove right padding for better mobile layout */
+  }
+
+  .user-section {
+    margin-right: 0; /* Remove right margin for better mobile layout */
+  }
+
+  .edit-profile-link {
+    margin-top: 20px; /* Add space between sections on mobile */
+  }
+
+  .user-info-section {
+    align-self: center;
+  }
 }
